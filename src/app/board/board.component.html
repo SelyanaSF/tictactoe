@@ -1,0 +1,22 @@
+
+<mat-card class="basic-card mat-elevation-z24">
+    <mat-card-header>
+        <mat-card-title><h1>Current Player: {{player}}</h1></mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click) = "newGame()">Start New Game</button>
+    </mat-card-actions>
+    <mat-card-actions>
+        <h3 *ngIf="winner">
+            Player {{winner}} won the game!
+        </h3>
+    </mat-card-actions>
+</mat-card>
+<br>
+<main>
+    <app-square
+        *ngFor="let val of squares; let i = index"
+        [value]="val"
+        (click)="makeMove(i)">
+    </app-square>
+</main>
